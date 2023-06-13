@@ -6,6 +6,12 @@ steps{
 git branch: 'main', url: 'https://github.com/SRIVATSA2002/internforte.git'
 }}
 
+stage("delete duplicate'){
+      steps{
+        sh 'dup.sh'
+      }
+      }
+
 stage("build docker image"){
 steps{
 sh 'docker build -t webserver:v1 .'
