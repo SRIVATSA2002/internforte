@@ -23,7 +23,7 @@ fi
 # Check if an image with the given name exists
 if docker images --format '{{.Repository}}' | grep -q "^$container_name$"; then
     echo "Image '$container_name' exists. Deleting..."
-    docker rmi "$container_name"
+    docker rmi "$container_name:v1"
     echo "Image '$container_name' deleted."
 else
     echo "Image '$container_name' does not exist."
