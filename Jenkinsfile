@@ -6,7 +6,7 @@ steps{
 git branch: 'main', url: 'https://github.com/SRIVATSA2002/internforte.git'
 }}
 
-stage("delete duplicate'){
+stage("delete duplicate"){
       steps{
         sh 'dup.sh'
       }
