@@ -21,9 +21,9 @@ else
 fi
 
 # Check if an image with the given name exists
-if docker images --format '{{.Repository}}' | grep -q "^$container_name$"; then
+if sudo docker images --format '{{.Repository}}' | grep -q "^$container_name$"; then
     echo "Image '$container_name' exists. Deleting..."
-    docker rmi "$container_name:v1"
+    sudo docker rmi "$container_name:v1"
     echo "Image '$container_name' deleted."
 else
     echo "Image '$container_name' does not exist."
@@ -34,8 +34,8 @@ fi
 
 stage("build docker image"){
 steps{
-sh 'docker build -t webserver:v1 .'
-sh 'docker run --name webserver -p 5000:5000 webserver:v1' 
+sh 'sudo docker build -t webserver:v1 .'
+sh 'sudo docker run --name webserver -p 5000:5000 webserver:v1' 
 }}
 }}
 
