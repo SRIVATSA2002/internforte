@@ -10,12 +10,11 @@ stage("delete duplicate"){
       steps{
         sh '''
 container_name="webserver"
-sudo su
 
 # Check if container with the given name is running
-if docker ps --format '{{.Names}}' | grep -q "^$container_name$"; then
+if sudo docker ps --format '{{.Names}}' | grep -q "^$container_name$"; then
     echo "Container '$container_name' is running. Deleting..."
-    docker stop "$container_name" && docker rm "$container_name"
+    sudo docker stop "$container_name" && docker rm "$container_name"
     echo "Container '$container_name' deleted."
 else
     echo "Container '$container_name' is not running."
