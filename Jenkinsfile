@@ -34,10 +34,13 @@ fi
 
 stage("build docker image"){
 steps{
-      script{
 sh 'docker build -t webserver:v1 .'
-sh 'docker run --name webserver -p 5000:5000 webserver:v1' 
-}}}
+sh 'docker run --name webserver -p 5000:5000 webserver:v1'
+}}
+      stage("exit"){
+            steps{
+                  return
+      }}
 }}
 
 
