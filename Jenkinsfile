@@ -10,7 +10,6 @@ stage("delete duplicate"){
       steps{
         sh '''
 container_name="webserver"
-sudo su
 
 # Check if container with the given name is running
 if docker ps --format '{{.Names}}' | grep -q "^$container_name$"; then
