@@ -7,7 +7,7 @@ pipeline {
 
                 script {
                     sh '''
-                    buildah-version
+                    buildah
                     '''
                 }
             }
